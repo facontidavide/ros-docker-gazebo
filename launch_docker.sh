@@ -2,12 +2,20 @@
 xhost +local:root
 
 nvidia-docker run -it \
---env="DISPLAY" --env="QT_X11_NO_MITSHM=1" --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
--v "$HOME/host_docker:/home/user/host_docker" \
+--env="DISPLAY" 
+--env="QT_X11_NO_MITSHM=1" 
+--user=$USER \
+--workdir="/home/$USER" \
+--volume="/home/$USER:/home/$USER" \
+--volume="/etc/group:/etc/group:ro" \
+--volume="/etc/passwd:/etc/passwd:ro" \
+--volume="/etc/shadow:/etc/shadow:ro" \
+--volume="/etc/sudoers.d:/etc/sudoers.d:ro" \
+--volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
+--volume="$HOME/host_docker:/home/user/host_docker" \
 -e LOCAL_USER_ID=`id -u $USER` \
 -e LOCAL_GROUP_ID=`id -g $USER` \
 -e LOCAL_GROUP_NAME=`id -gn $USER` \
- ros-davide
+ ros-kinetic-gazebo7
 
 xhost -local:root
-
