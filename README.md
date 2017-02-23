@@ -19,7 +19,7 @@ The command below will **create** the container from the base image if it doesn'
 
 ## Step 4: Start the container
 
-To make it easier, I created the launcher **launch_docker.sh**.
+To make it easier, I created the launcher **launch_docker.sh** (you might need to call **chmod +x ./launch_docker.sh** first).
 
      ./launch_docker.sh
 
