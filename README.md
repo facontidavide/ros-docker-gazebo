@@ -1,9 +1,15 @@
-# ROS Kinetic + Gazebo on Docker Howto
+# ROS Kinetic + Gazebo on Docker HOWTO
+
+This tutorial is focused on those people that have Ubuntu 14.04 + ROS Indigo and they want to run Gazebo 7 or later.
 
 ## Step 1: Install Docker
 Install docker https://docs.docker.com/engine/installation/linux/ubuntu/
 
-To run docker without super user (optional) http://askubuntu.com/questions/477551/how-can-i-use-docker-without-sudo
+To run docker without super user:
+
+      sudo groupadd docker
+      sudo gpasswd -a ${USER} docker
+      sudo service docker restart
 
 ## Step 2: Use NVIDIA acceleration
 
